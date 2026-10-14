@@ -1,11 +1,134 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>User Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <header>
+        <h1>User Management System</h1>
+        <p>Manage your users in one place</p>
+    </header>
+
+    <main>
+
+        <section class="user-form-section">
+            <h2 id="form-title">Add New User</h2>
+
+            <form id="user-form">
+                <input type="hidden" id="user-id">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter email address"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="Enter age"
+                        min="1"
+                        max="120"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" required>
+                        <option value="">Select a role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                        <option value="User">User</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">
+                        Add User
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-btn"
+                        hidden
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </section>
+
+        
+        <section class="user-list-section">
+            <h2>All Users</h2>
+
+            <div class="filters">
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search by name or email"
+                >
+
+                <select id="role-filter">
+                    <option value="">All Roles</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Tester">Tester</option>
+                    <option value="User">User</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="user-table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+
+           
+        </section>
+
+    </main>
+
+
+   
+    <script type="module" src="./dist/app.js"></script>
+
 </body>
 </html>
